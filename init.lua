@@ -35,4 +35,5 @@ require("lazy").setup({
 	require("plugins.indent-blankline"),
 	require("plugins.gitsigns"),
 	require("plugins.autoformatting"),
+	require("plugins.treesitter"),
 })
