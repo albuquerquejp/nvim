@@ -4,7 +4,7 @@ return {
 	priority = 1000,
 	opts = {},
 	init = function()
-		vim.cmd.colorscheme("tokyonight-night")
+		vim.cmd.colorscheme("tokyonight-moon")
 		vim.cmd.hi("Commet gui=none")
 	end,
 }
