@@ -27,4 +27,21 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
-vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
+
+-- close all buffers except the current one
+vim.keymap.set("n", "<leader>bo", function()
+	local cur = vim.api.nvim_get_current_buf()
+	for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+		if bufnr ~= cur and vim.fn.buflisted(bufnr) == 1 then
+			vim.api.nvim_buf_delete(bufnr, { force = true })
+		end
+	end
+end, vim.tbl_extend("force", opts, { desc = "Buffer: close Others" }))
+
+-- delete every listed buffer
+vim.keymap.set(
+	"n",
+	"<leader>ba",
+	"<cmd>bufdo bdelete!<CR>",
+	{ noremap = true, silent = true, desc = "Buffer: delete All" }
+)
