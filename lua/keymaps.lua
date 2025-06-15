@@ -45,3 +45,6 @@ vim.keymap.set(
 	"<cmd>bufdo bdelete!<CR>",
 	{ noremap = true, silent = true, desc = "Buffer: delete All" }
 )
+
+-- delete should not be on the clipboard
+vim.keymap.set("n", "d", "_d")
