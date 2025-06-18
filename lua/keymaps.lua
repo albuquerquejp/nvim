@@ -7,6 +7,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set(
+	"n",
+	"<leader>e",
+	vim.diagnostic.open_float,
+	{ desc = "Shows diagnostic msg [E]rror Msg in current Line" }
+)
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -39,12 +45,12 @@ vim.keymap.set("n", "<leader>bo", function()
 end, vim.tbl_extend("force", opts, { desc = "Buffer: close Others" }))
 
 -- delete every listed buffer
-vim.keymap.set(
-	"n",
-	"<leader>ba",
-	"<cmd>bufdo bdelete!<CR>",
-	{ noremap = true, silent = true, desc = "Buffer: delete All" }
-)
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>ba",
+-- 	"<cmd>bufdo bdelete!<CR>",
+-- 	{ noremap = true, silent = true, desc = "Buffer: delete All" }
+-- )
 
 -- delete should not be on the clipboard
 vim.keymap.set("n", "d", "_d")
