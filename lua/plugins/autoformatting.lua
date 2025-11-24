@@ -32,10 +32,7 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- For Python, use the custom "black" and "isort" formatters.
-			python = { "black", "isort" },
-			-- python = {"ruff_fix, 'ruff_formart", "ruff_organize_imports"}
-			-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 		},
 	},
 }
