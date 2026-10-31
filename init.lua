@@ -22,6 +22,12 @@ end ---@diagnostic disable-next-line: undefined-field
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Node.js installed by install.sh for Mason and the npm-based LSPs; only Neovim sees it
+local node_bin = vim.fn.stdpath("data") .. "/toolchain/node/bin"
+if vim.uv.fs_stat(node_bin) then
+	vim.env.PATH = node_bin .. ":" .. vim.env.PATH
+end
+
 require("lazy").setup({
 	require("plugins.neo-tree"),
 	require("plugins.colorscheme"),
