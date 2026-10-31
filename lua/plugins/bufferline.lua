@@ -41,9 +41,6 @@ return {
 				sort_by = "insert_at_end",
 			},
 			highlights = {
-				separator = {
-					fg = "#434C5E",
-				},
 				buffer_selected = {
 					bold = true,
 					italic = false,

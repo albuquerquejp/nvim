@@ -2,6 +2,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
+-- Windows Terminal supports true colour but doesn't set $COLORTERM, so tell Neovim explicitly
+vim.opt.termguicolors = true
 -- Don't show the mode, since it's already in the status line
 --vim.opt.showmode = false
 
@@ -46,3 +48,15 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Ask to save instead of failing on :q with unsaved changes
+vim.opt.confirm = true
+
+-- Scroll wrapped lines smoothly instead of jumping whole lines
+vim.opt.smoothscroll = true
+
+-- Neovim 0.11 turned inline diagnostics off by default; bring them back
+vim.diagnostic.config({
+	virtual_text = true,
+	float = { border = "rounded" },
+})
