@@ -16,9 +16,9 @@ return {
 			vim.g.everforest_better_performance = 1
 		end,
 		config = function()
-			apply(light)
+			apply(dark)
 			vim.keymap.set("n", "<leader>tt", function()
-				apply(vim.g.colors_name == light and dark or light)
+				apply(vim.g.colors_name == dark and light or dark)
 			end, { desc = "[T]oggle [T]heme light/dark" })
 		end,
 	},
